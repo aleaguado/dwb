@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+
+.total {
+    grid-column: 1 / 7;
+}
+
+.parcial-esq {
+  grid-column: 2 / 4;
+}
+
+.parcial-dir {
+  grid-column: 4 / 6;
+}
+
+.detalhes{
+  background-color: rgba(194, 195, 200, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0;
+}
