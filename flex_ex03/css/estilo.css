@@ -1,0 +1,39 @@
+body{
+  margin: auto 0;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2%;
+  }
+
+.total {
+    width: 100%;
+}
+
+.total-margem{
+  width: 81%;
+}
+
+.subcont{
+  display: flex;
+  gap: 0;
+  flex-flow: row;
+  width: 84%;
+}
+
+.subcont article{
+  flex-basis: auto;
+  width: 100%;
+}
+
+.detalhes{
+  background-color: rgba(194, 195, 200, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0;
+}
