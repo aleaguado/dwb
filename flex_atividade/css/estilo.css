@@ -1,0 +1,32 @@
+body{
+  margin: auto 0;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2%;
+  }
+
+.total {
+    width: 100%;
+}
+
+.left{
+  width: 55%;
+}
+
+.right{
+  width: 25%;
+}
+
+
+.detalhes{
+  background-color: rgba(194, 195, 200, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  margin: 5px 0;
+}

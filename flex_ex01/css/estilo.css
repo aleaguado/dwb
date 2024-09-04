@@ -1,0 +1,25 @@
+body{
+  margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+.total {
+   width: 96%;
+}
+
+.parcial {
+  width: 70%;
+}
+
+.detalhes{
+  background-color: rgba(194, 195, 200, 0.8);
+  padding: 2%;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0;
+}
