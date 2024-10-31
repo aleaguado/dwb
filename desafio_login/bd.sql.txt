@@ -1,0 +1,14 @@
+create database login;
+use login;
+create table usuario(
+	nome VARCHAR(50) NOT NULL PRIMARY KEY,
+    senha VARCHAR(50) NOT NULL
+);
+insert into usuario() values('kamilli', 'chocolate');
+
+-- CUIDANDO DA SEGURANÇA
+create user 'sistema'@'localhost' identified by '1234';
+grant all on login.* to 'sistema'@'localhost';
+flush privileges;
+
+show tables;
