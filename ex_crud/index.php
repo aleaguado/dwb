@@ -1,10 +1,10 @@
 <?php
     session_start();
-    require 'db_conn.php';
+    require_once 'db_conn.php';
     include('msg.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +43,8 @@
                                                 <td><?= $gente['prontuario']; ?></td>
                                                 <td><?= $gente['nome']; ?></td>
                                                 <td>
-                                                    <a href="update.php?id=<?= $gente['prontuario']; ?>" class="btn btn-success btn-sm">Editar</a>
-                                                    <a href="delete.php?id=<?= $gente['prontuario']; ?>" class="btn btn-success btn-sm">Deletar</a>   
+                                                    <a href="update.php?prontuario=<?= $gente['prontuario']; ?> &nome= <?= $gente['nome']; ?>" class="btn btn-success btn-sm">Editar</a>
+                                                    <a href="delete.php?prontuario=<?= $gente['prontuario']; ?> &nome= <?= $gente['nome']; ?>" class="btn btn-success btn-sm">Deletar</a>   
                                                 </td>
                                             </tr>
                                             <?php

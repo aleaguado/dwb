@@ -2,12 +2,12 @@
 session_start(); // Inicia os trabalhos com sessão
 require_once 'db_conn.php'; // Inclui a conexão com o banco
 include('msg.php'); // Inclui o arquivo que mostra mensagens
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") { //verifica se será chamado via método post
     $prontuario = $_POST["prontuario"]; //pega a variável prontuario q vem via POST
-    $nome = $_POST["nome"]; //pega a variavel nome que vem via POST
-    $sql = "INSERT INTO gente (prontuario, nome) VALUES ('$prontuario', '$nome')"; //Cria o insert!
+    $sql = "Delete from gente where prontuario = '$prontuario'";
     if ($conn->query($sql) === TRUE) { // Executa o insert e verifica!
-        $_SESSION['message'] = "Pessoa inserida com sucesso!"; //Cria a mensagem!
+        $_SESSION['message'] = "Pessoa excluida com sucesso!"; //Cria a mensagem!
         header("Location: index.php"); //Chama o index!
         exit(0);
     } else {
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //verifica se será chamado via mé
         <!-- O bootstrap organiza o layout em linhas (row) e colunas (col)-->
                 <div class="card">
                     <div class="card-header">
-                        <h4>Adicionar pessoa
+                        <h4>Deletar pessoa
                             <a href="index.php" class="btn btn-danger float-end">VOLTAR</a>
                         </h4>
                     </div>
@@ -40,14 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //verifica se será chamado via mé
                         <form method="POST">
                             <div class="mb-3">
                                 <label>Prontuario</label>
-                                <input type="text" name="prontuario" class="form-control">
+                                <input type="text" name="prontuario" value=<?=$_GET['prontuario']?> class="form-control" readonly>
                             </div>
                             <div class="mb-3">
                                 <label>Nome</label>
-                                <input type="text" name="nome" class="form-control">
+                                <input type="text" name="nome" value=<?=$_GET['nome']?> class="form-control" readonly>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="salvar_pessoa" class="btn btn-primary">Salvar pessoa</button>
+                                <button type="submit" name="atualizar_pessoa" class="btn btn-primary">Remover pessoa</button>
                             </div>
                         </form>
                     </div>

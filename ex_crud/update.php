@@ -2,12 +2,16 @@
 session_start(); // Inicia os trabalhos com sessão
 require_once 'db_conn.php'; // Inclui a conexão com o banco
 include('msg.php'); // Inclui o arquivo que mostra mensagens
+if (isset($_GET['prontuario'])) {
+    $_SESSAO['pront_veio'] = $_GET['prontuario'];
+}
 if ($_SERVER["REQUEST_METHOD"] === "POST") { //verifica se será chamado via método post
     $prontuario = $_POST["prontuario"]; //pega a variável prontuario q vem via POST
     $nome = $_POST["nome"]; //pega a variavel nome que vem via POST
-    $sql = "INSERT INTO gente (prontuario, nome) VALUES ('$prontuario', '$nome')"; //Cria o insert!
+    $pront_veio = $_SESSAO['pront_veio'];
+    $sql = "UPDATE gente set prontuario = '$prontuario', nome = '$nome' where prontuario='$pront_veio'";
     if ($conn->query($sql) === TRUE) { // Executa o insert e verifica!
-        $_SESSION['message'] = "Pessoa inserida com sucesso!"; //Cria a mensagem!
+        $_SESSION['message'] = "Pessoa atualizada com sucesso!"; //Cria a mensagem!
         header("Location: index.php"); //Chama o index!
         exit(0);
     } else {
@@ -31,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //verifica se será chamado via mé
         <!-- O bootstrap organiza o layout em linhas (row) e colunas (col)-->
                 <div class="card">
                     <div class="card-header">
-                        <h4>Adicionar pessoa
+                        <h4>Atualizar pessoa
                             <a href="index.php" class="btn btn-danger float-end">VOLTAR</a>
                         </h4>
                     </div>
@@ -40,14 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //verifica se será chamado via mé
                         <form method="POST">
                             <div class="mb-3">
                                 <label>Prontuario</label>
-                                <input type="text" name="prontuario" class="form-control">
+                                <input type="text" name="prontuario" value=<?=$_GET['prontuario']?> class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label>Nome</label>
-                                <input type="text" name="nome" class="form-control">
+                                <input type="text" name="nome" value=<?=$_GET['nome']?> class="form-control">
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="salvar_pessoa" class="btn btn-primary">Salvar pessoa</button>
+                                <button type="submit" name="atualizar_pessoa" class="btn btn-primary">Atualizar pessoa</button>
                             </div>
                         </form>
                     </div>

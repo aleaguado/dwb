@@ -1,5 +1,4 @@
 <?php
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Cria a conexão
     $conn = new mysqli("192.185.213.127", "dombo512_melhores", "melhores123", "dombo512_dwb");
